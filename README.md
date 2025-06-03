@@ -1,3 +1,5 @@
+[![Made in Ukraine](https://img.shields.io/badge/made_in-Ukraine-ffd700.svg?labelColor=0057b7)](https://stand-with-ukraine.pp.ua)
+
 # Postman to JMeter Converter
 
 This Python 3 script converts your Postman API collections into JMeter test plans, bridging your API development with load testing. It handles request bodies, headers, URL details and integrates Postman collection and env vars.
