@@ -3,29 +3,30 @@ import json
 import argparse
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
+from urllib.parse import urlparse, parse_qs
 
 def convert_postman_to_jmx(postman_file, output_file, environment_file=None):
     """
     Converts a Postman collection JSON file to a JMeter JMX file.
 
     Args:
-        postman_file (str): Path to the Postman collection JSON file.
-        output_file (str): Path where the JMeter JMX file will be saved.
-        environment_file (str, optional): Path to the Postman environment JSON file.
-                                          If provided, environment variables will be added.
+        postman_file (str): path to the Postman collection JSON file.
+        output_file (str): path where the JMeter JMX file will be saved.
+        environment_file (str, optional): path to the Postman env JSON file.
+                                          if provided, env vars will be added.
     """
-    # Load Postman collection
+    # load Postman collection
     with open(postman_file, 'r') as f:
         collection = json.load(f)
 
-    # Load Postman environment if provided
+    # load Postman env if provided
     environment_vars = []
     if environment_file:
         try:
             with open(environment_file, 'r') as f_env:
                 environment_data = json.load(f_env)
                 if 'values' in environment_data:
-                    # Filter for enabled variables from the environment
+                    # filter for enabled vars from env
                     environment_vars = [v for v in environment_data['values'] if v.get('enabled', True)]
         except FileNotFoundError:
             print(f"Warning: Environment file '{environment_file}' not found. Skipping environment variables.")
@@ -33,11 +34,11 @@ def convert_postman_to_jmx(postman_file, output_file, environment_file=None):
             print(f"Warning: Could not parse environment file '{environment_file}'. Skipping environment variables.")
 
 
-    # Create JMX root structure
+    # create JMX root structure
     jmeter_test_plan = ET.Element('jmeterTestPlan', version="1.2", properties="5.0", jmeter="5.2.1")
     hash_tree = ET.SubElement(jmeter_test_plan, 'hashTree')
 
-    # Create Test Plan
+    # create test plan
     test_plan = ET.SubElement(hash_tree, 'TestPlan', {
         'guiclass': 'TestPlanGui',
         'testclass': 'TestPlan',
@@ -49,7 +50,7 @@ def convert_postman_to_jmx(postman_file, output_file, environment_file=None):
     ET.SubElement(test_plan, 'boolProp', name="TestPlan.serialize_threadgroups").text = 'false'
     ET.SubElement(test_plan, 'stringProp', name="TestPlan.user_define_classpath")
 
-    # Add default user defined variables to the Test Plan (can be empty)
+    # add default user defined variables to the test plan (can be empty)
     element_prop = ET.SubElement(test_plan, 'elementProp', {
         'name': 'TestPlan.user_defined_variables',
         'elementType': 'Arguments'
@@ -58,7 +59,7 @@ def convert_postman_to_jmx(postman_file, output_file, environment_file=None):
 
     hash_tree2 = ET.SubElement(hash_tree, 'hashTree')
 
-    # Create Thread Group
+    # create thread group
     thread_group = ET.SubElement(hash_tree2, 'ThreadGroup', {
         'guiclass': 'ThreadGroupGui',
         'testclass': 'ThreadGroup',
@@ -86,24 +87,32 @@ def convert_postman_to_jmx(postman_file, output_file, environment_file=None):
 
     hash_tree3 = ET.SubElement(hash_tree2, 'hashTree')
 
-    # Process collection variables
+    # process collection vars
     if 'variable' in collection:
         add_user_defined_variables(collection['variable'], hash_tree3, name="Collection Variables")
 
-    # Process environment variables
+    # process env vars
     if environment_vars:
         add_user_defined_variables(environment_vars, hash_tree3, name="Environment Variables")
 
-    # Process items recursively (requests and folders)
+    # process items recursively (requests and folders)
     if 'item' in collection:
         process_items(collection['item'], hash_tree3)
 
-    # Convert to XML string with pretty formatting
-    xml_str = ET.tostring(jmeter_test_plan, encoding='utf-8')
-    parsed = minidom.parseString(xml_str)
-    pretty_xml = parsed.toprettyxml(indent="    ")
+    # convert to XML string with pretty formatting
+    xml_str = ET.tostring(jmeter_test_plan, encoding='utf-8', method='xml')
+    dom = minidom.parseString(xml_str)
 
-    # Write to output file
+    # empty elements are properly serialized
+    for elem in dom.getElementsByTagName('stringProp'):
+        if not elem.firstChild and elem.getAttribute('name') == 'HTTPSampler.port':
+            elem.appendChild(dom.createTextNode(''))
+
+    pretty_xml = dom.toprettyxml(indent="    ")
+
+    # remove redundant newlines and spaces added by minidom
+    pretty_xml = '\n'.join(line for line in pretty_xml.split('\n') if line.strip())
+
     with open(output_file, 'w') as f:
         f.write(pretty_xml)
 
@@ -129,7 +138,7 @@ def add_user_defined_variables(variables, parent_hash_tree, name="User Defined V
     collection_prop = ET.SubElement(arguments, 'collectionProp', name="Arguments.arguments")
 
     for var in variables:
-        # Ensure 'key' and 'value' exist before processing
+        # ensure 'key' and 'value' exist before processing
         if 'key' in var and 'value' in var:
             element_prop = ET.SubElement(collection_prop, 'elementProp', {
                 'name': var['key'],
@@ -151,12 +160,10 @@ def process_items(items, parent_element):
     """
     for item in items:
         if 'item' in item:
-            # This is a folder, create a JMeter Test Fragment or just process its children directly
-            # For simplicity, we'll just process its children directly under the current parent_element
-            # without creating a specific folder element in JMX, as JMeter structure is flatter.
+            # this is a dir, create a JMeter test fragment or just process its children directly
             process_items(item['item'], parent_element)
         else:
-            # This is a request
+            # request
             process_request(item, parent_element)
 
 def process_request(item, parent_element):
@@ -172,7 +179,14 @@ def process_request(item, parent_element):
 
     request = item['request']
 
-    # Create HTTPSamplerProxy
+    # init URL and method components with defaults
+    method = request.get('method', 'GET')
+    domain = ''
+    path = ''
+    protocol = 'http'
+    port = ''
+
+    # create HTTPSamplerProxy
     sampler = ET.SubElement(parent_element, 'HTTPSamplerProxy', {
         'guiclass': 'HttpTestSampleGui',
         'testclass': 'HTTPSamplerProxy',
@@ -180,7 +194,7 @@ def process_request(item, parent_element):
         'enabled': 'true'
     })
 
-    # Process request body
+    # process request body
     if 'body' in request:
         body = request['body']
         if body.get('mode') == 'raw' and 'raw' in body and body['raw']:
@@ -195,14 +209,14 @@ def process_request(item, parent_element):
             collection_prop = ET.SubElement(element_prop, 'collectionProp', name="Arguments.arguments")
 
             arg_element = ET.SubElement(collection_prop, 'elementProp', {
-                'name': '', # Name is empty for raw body
+                'name': '', # name is empty for raw body
                 'elementType': 'HTTPArgument'
             })
             ET.SubElement(arg_element, 'boolProp', name="HTTPArgument.always_encode").text = 'false'
             ET.SubElement(arg_element, 'stringProp', name="Argument.value").text = body['raw']
             ET.SubElement(arg_element, 'stringProp', name="Argument.metadata").text = '='
         elif body.get('mode') == 'urlencoded' and 'urlencoded' in body and body['urlencoded']:
-            # For x-www-form-urlencoded, JMeter handles parameters as arguments
+            # for x-www-form-urlencoded, JMeter handles params as args
             element_prop = ET.SubElement(sampler, 'elementProp', {
                 'name': 'HTTPsampler.Arguments',
                 'elementType': 'Arguments',
@@ -223,7 +237,7 @@ def process_request(item, parent_element):
                 ET.SubElement(arg_element, 'boolProp', name="HTTPArgument.use_equals").text = 'true'
                 ET.SubElement(arg_element, 'stringProp', name="Argument.name").text = param.get('key', '')
         else:
-            # Handle other body types or empty body
+            # handle other body types or empty body
             element_prop = ET.SubElement(sampler, 'elementProp', {
                 'name': 'HTTPsampler.Arguments',
                 'elementType': 'Arguments',
@@ -233,7 +247,7 @@ def process_request(item, parent_element):
             })
             ET.SubElement(element_prop, 'collectionProp', name="Arguments.arguments")
     else:
-        # No body in request
+        # no body in request
         element_prop = ET.SubElement(sampler, 'elementProp', {
             'name': 'HTTPsampler.Arguments',
             'elementType': 'Arguments',
@@ -244,43 +258,41 @@ def process_request(item, parent_element):
         ET.SubElement(element_prop, 'collectionProp', name="Arguments.arguments")
 
 
-    # Set common sampler properties
+    # set common sampler props (bool props)
     ET.SubElement(sampler, 'boolProp', name="HTTPSampler.auto_redirects").text = 'false'
     ET.SubElement(sampler, 'boolProp', name="HTTPSampler.follow_redirects").text = 'true'
     ET.SubElement(sampler, 'boolProp', name="HTTPSampler.use_keepalive").text = 'true'
     ET.SubElement(sampler, 'boolProp', name="HTTPSampler.monitor").text = 'false'
-    ET.SubElement(sampler, 'boolProp', name="HTTPSampler.DO_MULTIPART_POST").text = 'false' # May need adjustment for multipart/form-data
+    ET.SubElement(sampler, 'boolProp', name="HTTPSampler.DO_MULTIPART_POST").text = 'false' # may need adjustment for multipart/form-data
     ET.SubElement(sampler, 'stringProp', name="HTTPSampler.embedded_url_re")
     ET.SubElement(sampler, 'stringProp', name="HTTPSampler.contentEncoding")
 
-    # Set method
-    method = request.get('method', 'GET')
-    ET.SubElement(sampler, 'stringProp', name="HTTPSampler.method").text = method
 
-    # Process URL
+    # process URL (logic to determine domain, path, protocol, port)
     if 'url' in request:
         url_data = request['url']
-        # Handle cases where url is a string or an object
         if isinstance(url_data, str):
-            # Attempt to parse a simple URL string
-            from urllib.parse import urlparse
             parsed_url = urlparse(url_data)
-            ET.SubElement(sampler, 'stringProp', name="HTTPSampler.domain").text = parsed_url.hostname or ''
-            ET.SubElement(sampler, 'stringProp', name="HTTPSampler.path").text = parsed_url.path or ''
-            ET.SubElement(sampler, 'stringProp', name="HTTPSampler.protocol").text = parsed_url.scheme or 'http'
-            ET.SubElement(sampler, 'stringProp', name="HTTPSampler.port").text = str(parsed_url.port) if parsed_url.port else ''
-            # Handle query parameters from URL string
+            domain = parsed_url.hostname or ''
+            path = parsed_url.path or ''
+            protocol = parsed_url.scheme or 'http'
+            port = str(parsed_url.port) if parsed_url.port else '' # Ensure port is string, even if None
+
+            # handle query paramsfrom URL string
             if parsed_url.query:
-                # Add query parameters as arguments
-                query_args_element_prop = ET.SubElement(sampler, 'elementProp', {
-                    'name': 'HTTPsampler.Arguments',
-                    'elementType': 'Arguments',
-                    'guiclass': 'HTTPArgumentsPanel',
-                    'testclass': 'Arguments',
-                    'enabled': 'true'
-                })
-                query_collection_prop = ET.SubElement(query_args_element_prop, 'collectionProp', name="Arguments.arguments")
-                from urllib.parse import parse_qs
+                query_args_element_prop = sampler.find("./elementProp[@name='HTTPsampler.Arguments']")
+                if query_args_element_prop is None: # Create if not already present from body
+                    query_args_element_prop = ET.SubElement(sampler, 'elementProp', {
+                        'name': 'HTTPsampler.Arguments',
+                        'elementType': 'Arguments',
+                        'guiclass': 'HTTPArgumentsPanel',
+                        'testclass': 'Arguments',
+                        'enabled': 'true'
+                    })
+                    ET.SubElement(query_args_element_prop, 'collectionProp', name="Arguments.arguments")
+
+                query_collection_prop = query_args_element_prop.find("collectionProp[@name='Arguments.arguments']")
+                
                 query_params = parse_qs(parsed_url.query)
                 for key, values in query_params.items():
                     for value in values:
@@ -296,39 +308,21 @@ def process_request(item, parent_element):
 
         elif isinstance(url_data, dict):
             # Postman URL object structure
-            host = '.'.join(url_data.get('host', ['localhost']))
-            ET.SubElement(sampler, 'stringProp', name="HTTPSampler.domain").text = host
-
-            # Path can be an array of strings or a single string
+            domain = '.'.join(url_data.get('host', ['localhost']))
             path_parts = url_data.get('path', [])
             if isinstance(path_parts, list):
                 path = '/' + '/'.join(path_parts)
-            else: # Assume it's a string
+            else: # assume it's a string
                 path = path_parts
-            ET.SubElement(sampler, 'stringProp', name="HTTPSampler.path").text = path
-
             protocol = url_data.get('protocol', 'http')
             if protocol.endswith(':'): # Remove trailing colon if present
                 protocol = protocol[:-1]
-            ET.SubElement(sampler, 'stringProp', name="HTTPSampler.protocol").text = protocol
+            port = str(url_data.get('port', '')) # Ensure port is string, even if empty
 
-            port = url_data.get('port', '')
-            ET.SubElement(sampler, 'stringProp', name="HTTPSampler.port").text = str(port) # Ensure port is string
-
-            # Process query parameters if present in URL object
+            # process query params if present in URL object
             if 'query' in url_data and url_data['query']:
-                # JMeter's HTTP Sampler arguments can include query parameters
-                # We need to add them to the same Arguments element as the body, or create a new one
-                # For simplicity, let's add them to the main Arguments element if it exists,
-                # or create one if not (though the body handling usually creates it).
-                # If there's a body, the sampler already has an 'HTTPsampler.Arguments' element.
-                # We need to find it and add to its 'collectionProp'.
-                # If no body, create a new 'HTTPsampler.Arguments' element.
-
-                # Find or create the Arguments element for query parameters
                 args_element = sampler.find("./elementProp[@name='HTTPsampler.Arguments']/collectionProp[@name='Arguments.arguments']")
                 if args_element is None:
-                    # If no body or existing arguments, create the structure
                     element_prop = ET.SubElement(sampler, 'elementProp', {
                         'name': 'HTTPsampler.Arguments',
                         'elementType': 'Arguments',
@@ -344,17 +338,25 @@ def process_request(item, parent_element):
                             'name': param.get('key', ''),
                             'elementType': 'HTTPArgument'
                         })
-                        ET.SubElement(arg_element, 'boolProp', name="HTTPArgument.always_encode").text = 'true' # Query params are usually encoded
+                        ET.SubElement(arg_element, 'boolProp', name="HTTPArgument.always_encode").text = 'true'
                         ET.SubElement(arg_element, 'stringProp', name="Argument.value").text = param.get('value', '')
                         ET.SubElement(arg_element, 'stringProp', name="Argument.metadata").text = '='
                         ET.SubElement(arg_element, 'boolProp', name="HTTPArgument.use_equals").text = 'true'
                         ET.SubElement(arg_element, 'stringProp', name="Argument.name").text = param.get('key', '')
 
+    # create all primary sampler props using the extracted values
+    ET.SubElement(sampler, 'stringProp', name="HTTPSampler.method").text = method
+    ET.SubElement(sampler, 'stringProp', name="HTTPSampler.domain").text = domain
+    ET.SubElement(sampler, 'stringProp', name="HTTPSampler.path").text = path
+    ET.SubElement(sampler, 'stringProp', name="HTTPSampler.protocol").text = protocol
+    port_prop = ET.SubElement(sampler, 'stringProp', name="HTTPSampler.port")
+    port_prop.text = port or ''  # This handles both None and empty string
 
-    # Create hashTree for sampler
+
+    # create hashTree for sampler
     sampler_hash_tree = ET.SubElement(parent_element, 'hashTree')
 
-    # Process headers
+    # process headers
     if 'header' in request and request['header']:
         header_manager = ET.SubElement(sampler_hash_tree, 'HeaderManager', {
             'guiclass': 'HeaderPanel',
@@ -374,17 +376,14 @@ def process_request(item, parent_element):
 
         ET.SubElement(sampler_hash_tree, 'hashTree')
 
-    # Process URL variables (path variables in Postman terminology)
-    # These are usually resolved into the path itself, but if they are explicitly
-    # defined in Postman's URL object, we can add them as user defined variables
-    # specific to this sampler.
+    # process URL vars (path vars in Postman terminology)
     if 'url' in request and isinstance(request['url'], dict) and 'variable' in request['url'] and request['url']['variable']:
         add_user_defined_variables(request['url']['variable'], sampler_hash_tree, name="URL Path Variables")
 
 
 def main():
     """
-    Main function to parse arguments and initiate the conversion.
+    Main func to parse args and init the conversion
     """
     parser = argparse.ArgumentParser(description='Convert Postman collection to JMeter JMX')
     parser.add_argument('input', help='Postman collection JSON file')
