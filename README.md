@@ -2,29 +2,27 @@
 
 # Postman to JMeter Converter
 
-This Python 3 script converts your Postman API collections into JMeter test plans, bridging your API development with load testing. It handles request bodies, headers, URL details and integrates Postman collection and env vars.
+This Python3 script converts your Postman API collections into JMeter test plans. It handles request bodies, headers, URL details and integrates Postman collection and environment variables.
 
-## What it Does
+#### Handles:
+
 * **Request bodies:** Raw JSON, x-www-form-urlencoded.
 * **Headers:** All your custom headers.
 * **URL details:** Host, path, protocol and port.
 * **Variables:** Both collection-level vars and env vars from Postman will be added as "User Defined Variables" in JMeter, so you can easily manage dynamic values.
 
 ## Running the Script
-1. **Save the script:** Save the Python code you have as `postman2jmx.py`.
-2. **Make it executable:** Open your terminal and run:
+1. Save the `postman2jmx.py` file
+2. Make it executable
 ```Bash
 chmod +x postman2jmx.py
 ```
-3. **Get your Postman files:** Export your Postman Collection as a JSON file. 
-If you use environment variables, export your Postman Environment as a JSON file too.
+3. Export Postman collection and environment (optionally) as a JSON
 
-Now, open your terminal or command prompt and navigate to where you saved the script.
+## Collection Conversion
+If you only have a Postman collection and don't use a separate env file:
 
-## Basic Conversion (Collection Only)
-If you only have a Postman Collection and don't use a separate environment file:
-
-`./postman2jmx.py <your_postman_collection.json> <output_jmeter_test_plan.jmx>`
+`./postman2jmx.py <postman_collection.json> <output_jmeter_test_plan.jmx>`
 
 
 **Example:**
@@ -32,10 +30,10 @@ If you only have a Postman Collection and don't use a separate environment file:
 ./postman2jmx.py collection.json loadsuit.jmx
 ```
 
-## With a Postman Environment
-If you have a Postman env file that you want to include (highly recommended for dynamic values like base URLs, tokens, etc.):
+## Collection & Environment Conversion
+If you have a Postman environment file that you want to include (recommended for dynamic values like base URLs, tokens, etc.):
 
-```./postman2jmx.py <your_postman_collection.json> <output_jmeter_test_plan.jmx> -e <your_postman_environment.json>```
+```./postman2jmx.py <postman_collection.json> <output_jmeter_test_plan.jmx> -e <postman_environment.json>```
 
 **Example:**
 ```Bash
@@ -53,4 +51,8 @@ Once the script runs, you'll find your new .jmx file in the specified output loc
 
 * **Body types:** The script handles raw JSON and x-www-form-urlencoded bodies. Other complex body types (like formdata with file uploads) might need manual adjustment in JMeter after conversion.
 
-* **Pre-request/Test Scripts:** Any JavaScript code you have in Postman's pre-request or test scripts won't be converted. You'll need to re-implement that logic in JMeter using JSR223 Samplers or other JMeter elements.
+* **Pre-request/Test Scripts:** Any JS code you have in Postman's pre-request or test scripts won't be converted. You'll need to re-implement that logic in JMeter using JSR223 samplers or other JMeter elements.
+
+### Contributing
+
+Feel free to open issues or submit pull requests - contributions are always welcome!
