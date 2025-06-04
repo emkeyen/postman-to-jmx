@@ -1,0 +1,1923 @@
+<?xml version="1.0" ?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.2.1">
+    <hashTree>
+        <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Postman Collection Import" enabled="true">
+            <boolProp name="TestPlan.functional_mode">false</boolProp>
+            <stringProp name="TestPlan.comments"/>
+            <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+            <stringProp name="TestPlan.user_define_classpath"/>
+            <elementProp name="TestPlan.user_defined_variables" elementType="Arguments">
+                <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+        </TestPlan>
+        <hashTree>
+            <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="⭐️ Third-party API" enabled="true">
+                <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" enabled="true">
+                    <boolProp name="LoopController.continue_forever">false</boolProp>
+                    <stringProp name="LoopController.loops">1</stringProp>
+                </elementProp>
+                <stringProp name="ThreadGroup.num_threads">1</stringProp>
+                <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+                <boolProp name="ThreadGroup.scheduler">false</boolProp>
+                <stringProp name="ThreadGroup.duration">0</stringProp>
+                <stringProp name="ThreadGroup.delay">0</stringProp>
+                <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+                <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+            </ThreadGroup>
+            <hashTree>
+                <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Collection Variables" enabled="true">
+                    <collectionProp name="Arguments.arguments">
+                        <elementProp name="baseUrl" elementType="Argument">
+                            <stringProp name="Argument.name">baseUrl</stringProp>
+                            <stringProp name="Argument.value">https://integration.talon.one</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                        </elementProp>
+                    </collectionProp>
+                </Arguments>
+                <hashTree/>
+                <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Environment Variables" enabled="true">
+                    <collectionProp name="Arguments.arguments">
+                        <elementProp name="APIKey_IAPI" elementType="Argument">
+                            <stringProp name="Argument.name">APIKey_IAPI</stringProp>
+                            <stringProp name="Argument.value">a</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                        </elementProp>
+                        <elementProp name="APIKey_MAPI" elementType="Argument">
+                            <stringProp name="Argument.name">APIKey_MAPI</stringProp>
+                            <stringProp name="Argument.value">a</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                        </elementProp>
+                        <elementProp name="APIKey_3rdParty" elementType="Argument">
+                            <stringProp name="Argument.name">APIKey_3rdParty</stringProp>
+                            <stringProp name="Argument.value">1</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                        </elementProp>
+                        <elementProp name="baseUrl" elementType="Argument">
+                            <stringProp name="Argument.name">baseUrl</stringProp>
+                            <stringProp name="Argument.value">https://mycompany.europe-west1.talon.one</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                        </elementProp>
+                        <elementProp name="integrationBaseUrl" elementType="Argument">
+                            <stringProp name="Argument.name">integrationBaseUrl</stringProp>
+                            <stringProp name="Argument.value">https://integration.talon.one</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                        </elementProp>
+                        <elementProp name="audienceIntegrationId" elementType="Argument">
+                            <stringProp name="Argument.name">audienceIntegrationId</stringProp>
+                            <stringProp name="Argument.value">1</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                        </elementProp>
+                        <elementProp name="catalogId" elementType="Argument">
+                            <stringProp name="Argument.name">catalogId</stringProp>
+                            <stringProp name="Argument.value">1</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                        </elementProp>
+                        <elementProp name="couponValue" elementType="Argument">
+                            <stringProp name="Argument.name">couponValue</stringProp>
+                            <stringProp name="Argument.value">xmax-2021</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                        </elementProp>
+                        <elementProp name="customerIntegrationId" elementType="Argument">
+                            <stringProp name="Argument.name">customerIntegrationId</stringProp>
+                            <stringProp name="Argument.value">customer1</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                        </elementProp>
+                        <elementProp name="integrationId" elementType="Argument">
+                            <stringProp name="Argument.name">integrationId</stringProp>
+                            <stringProp name="Argument.value">1</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                        </elementProp>
+                        <elementProp name="loyaltyProgramId" elementType="Argument">
+                            <stringProp name="Argument.name">loyaltyProgramId</stringProp>
+                            <stringProp name="Argument.value">program1</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                        </elementProp>
+                        <elementProp name="loyaltyCardId" elementType="Argument">
+                            <stringProp name="Argument.name">loyaltyCardId</stringProp>
+                            <stringProp name="Argument.value">cardId1</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                        </elementProp>
+                        <elementProp name="sessionIntegrationId" elementType="Argument">
+                            <stringProp name="Argument.name">sessionIntegrationId</stringProp>
+                            <stringProp name="Argument.value">session1
+</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                        </elementProp>
+                        <elementProp name="applicationId" elementType="Argument">
+                            <stringProp name="Argument.name">applicationId</stringProp>
+                            <stringProp name="Argument.value">1</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                        </elementProp>
+                        <elementProp name="attributeId" elementType="Argument">
+                            <stringProp name="Argument.name">attributeId</stringProp>
+                            <stringProp name="Argument.value">1</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                        </elementProp>
+                        <elementProp name="campaignId" elementType="Argument">
+                            <stringProp name="Argument.name">campaignId</stringProp>
+                            <stringProp name="Argument.value">1</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                        </elementProp>
+                        <elementProp name="collectionId" elementType="Argument">
+                            <stringProp name="Argument.name">collectionId</stringProp>
+                            <stringProp name="Argument.value">1</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                        </elementProp>
+                        <elementProp name="talonDeployment_3rdParty" elementType="Argument">
+                            <stringProp name="Argument.name">talonDeployment_3rdParty</stringProp>
+                            <stringProp name="Argument.value">mycompany.europe-west1.talon.one</stringProp>
+                            <stringProp name="Argument.metadata">=</stringProp>
+                        </elementProp>
+                    </collectionProp>
+                </Arguments>
+                <hashTree/>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create referral" enabled="true">
+                    <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                    <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                                <stringProp name="Argument.value">{
+  "deploymentUrl": "mycompany.europe-west1.talon.one",
+  "campaignId": 5672,
+  "advocateProfileIntegrationId": "2",
+  "friendProfileIntegrationId": "3",
+  "startDate": "2021-09-30T15:35:02.371569+02:00",
+  "expiryDate": "2021-10-03T15:35:02.371569+02:00",
+  "usageLimit": 3,
+  "attributes": {
+    "welcome_message": "Welcome!"
+  }
+}</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </elementProp>
+                    <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                    <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                    <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                    <boolProp name="HTTPSampler.monitor">false</boolProp>
+                    <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                    <stringProp name="HTTPSampler.embedded_url_re"/>
+                    <stringProp name="HTTPSampler.contentEncoding"/>
+                    <stringProp name="HTTPSampler.method">POST</stringProp>
+                    <stringProp name="HTTPSampler.domain">{{baseUrl}}</stringProp>
+                    <stringProp name="HTTPSampler.path">/braze/referral</stringProp>
+                    <stringProp name="HTTPSampler.protocol">http</stringProp>
+                    <stringProp name="HTTPSampler.port"/>
+                </HTTPSamplerProxy>
+                <hashTree>
+                    <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                        <collectionProp name="HeaderManager.headers">
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">X-DRY-RUN</stringProp>
+                                <stringProp name="Header.value">true</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Content-Type</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Accept</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </HeaderManager>
+                    <hashTree/>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create coupon" enabled="true">
+                    <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                    <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                                <stringProp name="Argument.value">{
+  "deploymentUrl": "mycompany.europe-west1.talon.one",
+  "applicationId": 398,
+  "campaignId": 5671,
+  "identifier": "test-coupon",
+  "usageLimit": 4,
+  "discountLimit": 30,
+  "reservationLimit": 45,
+  "integrationId": "URN-GV8294NV",
+  "startDate": "2021-09-30T15:35:02.371569+02:00",
+  "expiryDate": "2024-10-03T15:35:02.371569+02:00",
+  "validCharacters": [
+    "A",
+    "B",
+    "C",
+    "1",
+    "2"
+  ],
+  "couponPattern": "ew-####",
+  "isReservationMandatory": false,
+  "limits": [
+    {
+      "entities": [
+        "Coupon",
+        "Profile"
+      ],
+      "limit": 1,
+      "action": "redeemCoupon"
+    }
+  ],
+  "attributes": {
+    "venueId": "BER4271",
+    "venueName": "Admiralspalast"
+  }
+}</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </elementProp>
+                    <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                    <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                    <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                    <boolProp name="HTTPSampler.monitor">false</boolProp>
+                    <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                    <stringProp name="HTTPSampler.embedded_url_re"/>
+                    <stringProp name="HTTPSampler.contentEncoding"/>
+                    <stringProp name="HTTPSampler.method">POST</stringProp>
+                    <stringProp name="HTTPSampler.domain">{{baseUrl}}</stringProp>
+                    <stringProp name="HTTPSampler.path">/braze/coupon</stringProp>
+                    <stringProp name="HTTPSampler.protocol">http</stringProp>
+                    <stringProp name="HTTPSampler.port"/>
+                </HTTPSamplerProxy>
+                <hashTree>
+                    <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                        <collectionProp name="HeaderManager.headers">
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Content-Type</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Accept</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </HeaderManager>
+                    <hashTree/>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create coupon reservation" enabled="true">
+                    <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                    <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                                <stringProp name="Argument.value">{
+  "deploymentUrl": "mycompany.europe-west1.talon.one",
+  "couponValue": "EW-1BC2",
+  "integrationId": "URN-GV8294NV"
+}</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </elementProp>
+                    <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                    <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                    <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                    <boolProp name="HTTPSampler.monitor">false</boolProp>
+                    <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                    <stringProp name="HTTPSampler.embedded_url_re"/>
+                    <stringProp name="HTTPSampler.contentEncoding"/>
+                    <stringProp name="HTTPSampler.method">POST</stringProp>
+                    <stringProp name="HTTPSampler.domain">{{baseUrl}}</stringProp>
+                    <stringProp name="HTTPSampler.path">/braze/coupon_reservation</stringProp>
+                    <stringProp name="HTTPSampler.protocol">http</stringProp>
+                    <stringProp name="HTTPSampler.port"/>
+                </HTTPSamplerProxy>
+                <hashTree>
+                    <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                        <collectionProp name="HeaderManager.headers">
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Content-Type</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Accept</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </HeaderManager>
+                    <hashTree/>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Track event" enabled="true">
+                    <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                    <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                                <stringProp name="Argument.value">{
+  "customerProfileId": "URN-GV8294NV",
+  "eventType": "myBrazeEvent",
+  "identifier": "NNjETb6XxDV7hQhLMA",
+  "type": "string",
+  "eventAttributes": {
+    "Language": "english",
+    "ShippingCountry": "DE",
+    "ProductClicked": true
+  }
+}</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </elementProp>
+                    <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                    <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                    <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                    <boolProp name="HTTPSampler.monitor">false</boolProp>
+                    <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                    <stringProp name="HTTPSampler.embedded_url_re"/>
+                    <stringProp name="HTTPSampler.contentEncoding"/>
+                    <stringProp name="HTTPSampler.method">POST</stringProp>
+                    <stringProp name="HTTPSampler.domain">{{baseUrl}}</stringProp>
+                    <stringProp name="HTTPSampler.path">/braze/event</stringProp>
+                    <stringProp name="HTTPSampler.protocol">http</stringProp>
+                    <stringProp name="HTTPSampler.port"/>
+                </HTTPSamplerProxy>
+                <hashTree>
+                    <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                        <collectionProp name="HeaderManager.headers">
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">destination-hostname</stringProp>
+                                <stringProp name="Header.value">mycompany.europe-west1.talon.one</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Content-Type</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Accept</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </HeaderManager>
+                    <hashTree/>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update customer profile" enabled="true">
+                    <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                    <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                                <stringProp name="Argument.value">{
+  "attributes": {
+    "Language": "english",
+    "ShippingCountry": "DE",
+    "ProductClicked": true
+  },
+  "runRuleEngine": false,
+  "audiencesChanges": {
+    "adds": [
+      1,
+      2,
+      3
+    ],
+    "deletes": [
+      4,
+      5,
+      6
+    ]
+  }
+}</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+                            <elementProp name="skipNonExistingAttributes" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">true</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">skipNonExistingAttributes</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </elementProp>
+                    <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                    <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                    <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                    <boolProp name="HTTPSampler.monitor">false</boolProp>
+                    <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                    <stringProp name="HTTPSampler.embedded_url_re"/>
+                    <stringProp name="HTTPSampler.contentEncoding"/>
+                    <stringProp name="HTTPSampler.method">PUT</stringProp>
+                    <stringProp name="HTTPSampler.domain">{{baseUrl}}</stringProp>
+                    <stringProp name="HTTPSampler.path">/cdp/customer_profile/:customerProfileId</stringProp>
+                    <stringProp name="HTTPSampler.protocol">http</stringProp>
+                    <stringProp name="HTTPSampler.port"/>
+                </HTTPSamplerProxy>
+                <hashTree>
+                    <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                        <collectionProp name="HeaderManager.headers">
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">customer-data-platform-name</stringProp>
+                                <stringProp name="Header.value">My CDP platform</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">destination-hostname</stringProp>
+                                <stringProp name="Header.value">mycompany.europe-west1.talon.one</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Content-Type</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Accept</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </HeaderManager>
+                    <hashTree/>
+                    <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="URL Path Variables" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="customerProfileId" elementType="Argument">
+                                <stringProp name="Argument.name">customerProfileId</stringProp>
+                                <stringProp name="Argument.value">customer1</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </Arguments>
+                    <hashTree/>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update audiences in multiple customer profiles" enabled="true">
+                    <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                    <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                                <stringProp name="Argument.value">{
+  "data": [
+    {
+      "adds": [
+        1,
+        2,
+        3
+      ],
+      "deletes": [
+        4,
+        5,
+        6
+      ],
+      "customerProfileId": "URN-GV8294NV"
+    },
+    {
+      "adds": [
+        1,
+        2,
+        3
+      ],
+      "deletes": [
+        4,
+        5,
+        6
+      ],
+      "customerProfileId": "URN-GV8294NV"
+    }
+  ]
+}</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </elementProp>
+                    <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                    <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                    <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                    <boolProp name="HTTPSampler.monitor">false</boolProp>
+                    <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                    <stringProp name="HTTPSampler.embedded_url_re"/>
+                    <stringProp name="HTTPSampler.contentEncoding"/>
+                    <stringProp name="HTTPSampler.method">PUT</stringProp>
+                    <stringProp name="HTTPSampler.domain">{{baseUrl}}</stringProp>
+                    <stringProp name="HTTPSampler.path">/cdp/customer_profiles/audiences</stringProp>
+                    <stringProp name="HTTPSampler.protocol">http</stringProp>
+                    <stringProp name="HTTPSampler.port"/>
+                </HTTPSamplerProxy>
+                <hashTree>
+                    <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                        <collectionProp name="HeaderManager.headers">
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">customer-data-platform-name</stringProp>
+                                <stringProp name="Header.value">My CDP platform</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">destination-hostname</stringProp>
+                                <stringProp name="Header.value">mycompany.europe-west1.talon.one</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Content-Type</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Accept</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </HeaderManager>
+                    <hashTree/>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create audience" enabled="true">
+                    <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                    <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                                <stringProp name="Argument.value">{
+  "audienceId": "382370BKDB946",
+  "audienceName": "Travel audience"
+}</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </elementProp>
+                    <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                    <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                    <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                    <boolProp name="HTTPSampler.monitor">false</boolProp>
+                    <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                    <stringProp name="HTTPSampler.embedded_url_re"/>
+                    <stringProp name="HTTPSampler.contentEncoding"/>
+                    <stringProp name="HTTPSampler.method">POST</stringProp>
+                    <stringProp name="HTTPSampler.domain">{{baseUrl}}</stringProp>
+                    <stringProp name="HTTPSampler.path">/cdp/audiences</stringProp>
+                    <stringProp name="HTTPSampler.protocol">http</stringProp>
+                    <stringProp name="HTTPSampler.port"/>
+                </HTTPSamplerProxy>
+                <hashTree>
+                    <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                        <collectionProp name="HeaderManager.headers">
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">customer-data-platform-name</stringProp>
+                                <stringProp name="Header.value">My CDP platform</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">destination-hostname</stringProp>
+                                <stringProp name="Header.value">mycompany.europe-west1.talon.one</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Content-Type</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Accept</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </HeaderManager>
+                    <hashTree/>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update audience" enabled="true">
+                    <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                    <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                                <stringProp name="Argument.value">{
+  "audienceId": "382370BKDB946",
+  "audienceName": "Travel audience"
+}</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </elementProp>
+                    <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                    <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                    <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                    <boolProp name="HTTPSampler.monitor">false</boolProp>
+                    <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                    <stringProp name="HTTPSampler.embedded_url_re"/>
+                    <stringProp name="HTTPSampler.contentEncoding"/>
+                    <stringProp name="HTTPSampler.method">PUT</stringProp>
+                    <stringProp name="HTTPSampler.domain">{{baseUrl}}</stringProp>
+                    <stringProp name="HTTPSampler.path">/cdp/audiences/:audienceId</stringProp>
+                    <stringProp name="HTTPSampler.protocol">http</stringProp>
+                    <stringProp name="HTTPSampler.port"/>
+                </HTTPSamplerProxy>
+                <hashTree>
+                    <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                        <collectionProp name="HeaderManager.headers">
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">customer-data-platform-name</stringProp>
+                                <stringProp name="Header.value">My CDP platform</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">destination-hostname</stringProp>
+                                <stringProp name="Header.value">mycompany.europe-west1.talon.one</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Content-Type</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Accept</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </HeaderManager>
+                    <hashTree/>
+                    <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="URL Path Variables" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="audienceId" elementType="Argument">
+                                <stringProp name="Argument.name">audienceId</stringProp>
+                                <stringProp name="Argument.value">audience1</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </Arguments>
+                    <hashTree/>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Delete audience" enabled="true">
+                    <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments"/>
+                    </elementProp>
+                    <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                    <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                    <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                    <boolProp name="HTTPSampler.monitor">false</boolProp>
+                    <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                    <stringProp name="HTTPSampler.embedded_url_re"/>
+                    <stringProp name="HTTPSampler.contentEncoding"/>
+                    <stringProp name="HTTPSampler.method">DELETE</stringProp>
+                    <stringProp name="HTTPSampler.domain">{{baseUrl}}</stringProp>
+                    <stringProp name="HTTPSampler.path">/cdp/audiences/:audienceId</stringProp>
+                    <stringProp name="HTTPSampler.protocol">http</stringProp>
+                    <stringProp name="HTTPSampler.port"/>
+                </HTTPSamplerProxy>
+                <hashTree>
+                    <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                        <collectionProp name="HeaderManager.headers">
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">customer-data-platform-name</stringProp>
+                                <stringProp name="Header.value">My CDP platform</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">destination-hostname</stringProp>
+                                <stringProp name="Header.value">mycompany.europe-west1.talon.one</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Accept</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </HeaderManager>
+                    <hashTree/>
+                    <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="URL Path Variables" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="audienceId" elementType="Argument">
+                                <stringProp name="Argument.name">audienceId</stringProp>
+                                <stringProp name="Argument.value">audience1</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </Arguments>
+                    <hashTree/>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create coupon" enabled="true">
+                    <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="applicationId" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">316</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">applicationId</stringProp>
+                            </elementProp>
+                            <elementProp name="campaignId" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">5843</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">campaignId</stringProp>
+                            </elementProp>
+                            <elementProp name="externalCampaignId" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">testCampaignId</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">externalCampaignId</stringProp>
+                            </elementProp>
+                            <elementProp name="startDate" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">2022-09-30T15:35:02Z</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">startDate</stringProp>
+                            </elementProp>
+                            <elementProp name="expiryDate" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">2022-10-30T15:35:02Z</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">expiryDate</stringProp>
+                            </elementProp>
+                            <elementProp name="discountLimit" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">155</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">discountLimit</stringProp>
+                            </elementProp>
+                            <elementProp name="recipientIntegrationId" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">URN-GV8294NV</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">recipientIntegrationId</stringProp>
+                            </elementProp>
+                            <elementProp name="usageLimit" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">1</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">usageLimit</stringProp>
+                            </elementProp>
+                            <elementProp name=".firstName" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">john</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">.firstName</stringProp>
+                            </elementProp>
+                            <elementProp name=".country" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">DE</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">.country</stringProp>
+                            </elementProp>
+                            <elementProp name="identifier" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">3495-4323</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">identifier</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </elementProp>
+                    <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                    <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                    <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                    <boolProp name="HTTPSampler.monitor">false</boolProp>
+                    <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                    <stringProp name="HTTPSampler.embedded_url_re"/>
+                    <stringProp name="HTTPSampler.contentEncoding"/>
+                    <stringProp name="HTTPSampler.method">GET</stringProp>
+                    <stringProp name="HTTPSampler.domain">{{baseUrl}}</stringProp>
+                    <stringProp name="HTTPSampler.path">/customer_engagement/coupon</stringProp>
+                    <stringProp name="HTTPSampler.protocol">http</stringProp>
+                    <stringProp name="HTTPSampler.port"/>
+                </HTTPSamplerProxy>
+                <hashTree>
+                    <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                        <collectionProp name="HeaderManager.headers">
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">customer-engagement-platform-name</stringProp>
+                                <stringProp name="Header.value">My CEP platform</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">destination-hostname</stringProp>
+                                <stringProp name="Header.value">mycompany.europe-west1.talon.one</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">X-DRY-RUN</stringProp>
+                                <stringProp name="Header.value">true</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Accept</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </HeaderManager>
+                    <hashTree/>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create referral" enabled="true">
+                    <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="campaignId" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">5843</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">campaignId</stringProp>
+                            </elementProp>
+                            <elementProp name="advocateProfileIntegrationId" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">testAdvocateProfile</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">advocateProfileIntegrationId</stringProp>
+                            </elementProp>
+                            <elementProp name="friendProfileIntegrationId" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">testFriendProfile</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">friendProfileIntegrationId</stringProp>
+                            </elementProp>
+                            <elementProp name="startDate" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">2022-09-30T15:35:02Z</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">startDate</stringProp>
+                            </elementProp>
+                            <elementProp name="expiryDate" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">2022-10-30T15:35:02Z</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">expiryDate</stringProp>
+                            </elementProp>
+                            <elementProp name="usageLimit" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">1</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">usageLimit</stringProp>
+                            </elementProp>
+                            <elementProp name=".firstName" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">john</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">.firstName</stringProp>
+                            </elementProp>
+                            <elementProp name=".country" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">DE</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">.country</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </elementProp>
+                    <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                    <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                    <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                    <boolProp name="HTTPSampler.monitor">false</boolProp>
+                    <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                    <stringProp name="HTTPSampler.embedded_url_re"/>
+                    <stringProp name="HTTPSampler.contentEncoding"/>
+                    <stringProp name="HTTPSampler.method">GET</stringProp>
+                    <stringProp name="HTTPSampler.domain">{{baseUrl}}</stringProp>
+                    <stringProp name="HTTPSampler.path">/customer_engagement/referral</stringProp>
+                    <stringProp name="HTTPSampler.protocol">http</stringProp>
+                    <stringProp name="HTTPSampler.port"/>
+                </HTTPSamplerProxy>
+                <hashTree>
+                    <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                        <collectionProp name="HeaderManager.headers">
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">customer-engagement-platform-name</stringProp>
+                                <stringProp name="Header.value">My CEP platform</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">destination-hostname</stringProp>
+                                <stringProp name="Header.value">mycompany.europe-west1.talon.one</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">X-DRY-RUN</stringProp>
+                                <stringProp name="Header.value">true</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Accept</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </HeaderManager>
+                    <hashTree/>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get loyalty ledger" enabled="true">
+                    <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="profileIntegrationId" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">URN-GV8294NV</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">profileIntegrationId</stringProp>
+                            </elementProp>
+                            <elementProp name="loyaltyProgramId" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">25</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">loyaltyProgramId</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </elementProp>
+                    <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                    <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                    <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                    <boolProp name="HTTPSampler.monitor">false</boolProp>
+                    <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                    <stringProp name="HTTPSampler.embedded_url_re"/>
+                    <stringProp name="HTTPSampler.contentEncoding"/>
+                    <stringProp name="HTTPSampler.method">GET</stringProp>
+                    <stringProp name="HTTPSampler.domain">{{baseUrl}}</stringProp>
+                    <stringProp name="HTTPSampler.path">/customer_engagement/loyalty</stringProp>
+                    <stringProp name="HTTPSampler.protocol">http</stringProp>
+                    <stringProp name="HTTPSampler.port"/>
+                </HTTPSamplerProxy>
+                <hashTree>
+                    <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                        <collectionProp name="HeaderManager.headers">
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">customer-engagement-platform-name</stringProp>
+                                <stringProp name="Header.value">My CEP platform</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">destination-hostname</stringProp>
+                                <stringProp name="Header.value">mycompany.europe-west1.talon.one</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Accept</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </HeaderManager>
+                    <hashTree/>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Add loyalty points" enabled="true">
+                    <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                    <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                                <stringProp name="Argument.value">{
+  "loyaltyProgramId": 25,
+  "profileIntegrationId": "URN-GV8294NV",
+  "points": 300,
+  "name": "Compensation",
+  "validityDuration": "5D",
+  "validUntil": "2021-07-20T22:00:00Z",
+  "pendingDuration": "12h",
+  "pendingUntil": "2021-07-20T22:00:00Z",
+  "subledgerId": "sub-123",
+  "applicationId": 322
+}</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </elementProp>
+                    <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                    <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                    <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                    <boolProp name="HTTPSampler.monitor">false</boolProp>
+                    <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                    <stringProp name="HTTPSampler.embedded_url_re"/>
+                    <stringProp name="HTTPSampler.contentEncoding"/>
+                    <stringProp name="HTTPSampler.method">POST</stringProp>
+                    <stringProp name="HTTPSampler.domain">{{baseUrl}}</stringProp>
+                    <stringProp name="HTTPSampler.path">/customer_engagement/add_loyalty_points</stringProp>
+                    <stringProp name="HTTPSampler.protocol">http</stringProp>
+                    <stringProp name="HTTPSampler.port"/>
+                </HTTPSamplerProxy>
+                <hashTree>
+                    <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                        <collectionProp name="HeaderManager.headers">
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">customer-engagement-platform-name</stringProp>
+                                <stringProp name="Header.value">My CEP platform</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">destination-hostname</stringProp>
+                                <stringProp name="Header.value">mycompany.europe-west1.talon.one</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Content-Type</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Accept</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </HeaderManager>
+                    <hashTree/>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get coupon" enabled="true">
+                    <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                    <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                                <stringProp name="Argument.value">{
+  "fields": [
+    "id",
+    "created"
+  ],
+  "limit": 1000,
+  "parameters": [
+    {
+      "campaignId": "34",
+      "integrationId": "URNGV8294NV"
+    },
+    {
+      "campaignId": "34",
+      "integrationId": "URNGV8294NV"
+    }
+  ]
+}</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+                            <elementProp name="deployment" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">company.talon.one</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">deployment</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </elementProp>
+                    <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                    <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                    <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                    <boolProp name="HTTPSampler.monitor">false</boolProp>
+                    <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                    <stringProp name="HTTPSampler.embedded_url_re"/>
+                    <stringProp name="HTTPSampler.contentEncoding"/>
+                    <stringProp name="HTTPSampler.method">POST</stringProp>
+                    <stringProp name="HTTPSampler.domain">{{baseUrl}}</stringProp>
+                    <stringProp name="HTTPSampler.path">/emarsys/customer_profiles/coupons</stringProp>
+                    <stringProp name="HTTPSampler.protocol">http</stringProp>
+                    <stringProp name="HTTPSampler.port"/>
+                </HTTPSamplerProxy>
+                <hashTree>
+                    <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                        <collectionProp name="HeaderManager.headers">
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Content-Type</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Accept</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </HeaderManager>
+                    <hashTree/>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get loyalty balance" enabled="true">
+                    <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                    <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                                <stringProp name="Argument.value">{
+  "fields": [
+    "activeBalance",
+    "pendingBalance"
+  ],
+  "parameters": [
+    {
+      "loyaltyProgramId": "34",
+      "integrationId": "URNGV8294NV",
+      "subledgerId": "subledger-123"
+    },
+    {
+      "loyaltyProgramId": "34",
+      "integrationId": "URNGV8294NV",
+      "subledgerId": "subledger-123"
+    }
+  ],
+  "limit": 61887577
+}</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+                            <elementProp name="deployment" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">company.talon.one</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">deployment</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </elementProp>
+                    <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                    <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                    <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                    <boolProp name="HTTPSampler.monitor">false</boolProp>
+                    <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                    <stringProp name="HTTPSampler.embedded_url_re"/>
+                    <stringProp name="HTTPSampler.contentEncoding"/>
+                    <stringProp name="HTTPSampler.method">POST</stringProp>
+                    <stringProp name="HTTPSampler.domain">{{baseUrl}}</stringProp>
+                    <stringProp name="HTTPSampler.path">/emarsys/loyalty_programs/profile/balance</stringProp>
+                    <stringProp name="HTTPSampler.protocol">http</stringProp>
+                    <stringProp name="HTTPSampler.port"/>
+                </HTTPSamplerProxy>
+                <hashTree>
+                    <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                        <collectionProp name="HeaderManager.headers">
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Content-Type</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Accept</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </HeaderManager>
+                    <hashTree/>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create coupon" enabled="true">
+                    <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="deployment" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">company.talon.one</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">deployment</stringProp>
+                            </elementProp>
+                            <elementProp name="applicationId" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">316</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">applicationId</stringProp>
+                            </elementProp>
+                            <elementProp name="campaignId" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">5843</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">campaignId</stringProp>
+                            </elementProp>
+                            <elementProp name="startDate" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">2022-09-30T15:35:02Z</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">startDate</stringProp>
+                            </elementProp>
+                            <elementProp name="expiryDate" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">2022-10-30T15:35:02Z</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">expiryDate</stringProp>
+                            </elementProp>
+                            <elementProp name="discountLimit" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">155</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">discountLimit</stringProp>
+                            </elementProp>
+                            <elementProp name="iterableCampaignId" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">iterableCampaign</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">iterableCampaignId</stringProp>
+                            </elementProp>
+                            <elementProp name="recipientIntegrationId" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">URN-GV8294NV</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">recipientIntegrationId</stringProp>
+                            </elementProp>
+                            <elementProp name="usageLimit" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">1</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">usageLimit</stringProp>
+                            </elementProp>
+                            <elementProp name=".firstName" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">john</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">.firstName</stringProp>
+                            </elementProp>
+                            <elementProp name=".country" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">DE</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">.country</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </elementProp>
+                    <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                    <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                    <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                    <boolProp name="HTTPSampler.monitor">false</boolProp>
+                    <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                    <stringProp name="HTTPSampler.embedded_url_re"/>
+                    <stringProp name="HTTPSampler.contentEncoding"/>
+                    <stringProp name="HTTPSampler.method">GET</stringProp>
+                    <stringProp name="HTTPSampler.domain">{{baseUrl}}</stringProp>
+                    <stringProp name="HTTPSampler.path">/iterable/coupon</stringProp>
+                    <stringProp name="HTTPSampler.protocol">http</stringProp>
+                    <stringProp name="HTTPSampler.port"/>
+                </HTTPSamplerProxy>
+                <hashTree>
+                    <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                        <collectionProp name="HeaderManager.headers">
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Accept</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </HeaderManager>
+                    <hashTree/>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create referral" enabled="true">
+                    <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="deployment" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">company.talon.one</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">deployment</stringProp>
+                            </elementProp>
+                            <elementProp name="campaignId" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">5843</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">campaignId</stringProp>
+                            </elementProp>
+                            <elementProp name="advocateProfileIntegrationId" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">testAdvocateProfile</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">advocateProfileIntegrationId</stringProp>
+                            </elementProp>
+                            <elementProp name="friendProfileIntegrationId" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">testFriendProfile</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">friendProfileIntegrationId</stringProp>
+                            </elementProp>
+                            <elementProp name="startDate" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">2022-09-30T15:35:02Z</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">startDate</stringProp>
+                            </elementProp>
+                            <elementProp name="expiryDate" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">2022-10-30T15:35:02Z</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">expiryDate</stringProp>
+                            </elementProp>
+                            <elementProp name="usageLimit" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">1</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">usageLimit</stringProp>
+                            </elementProp>
+                            <elementProp name=".firstName" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">john</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">.firstName</stringProp>
+                            </elementProp>
+                            <elementProp name=".country" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">DE</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">.country</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </elementProp>
+                    <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                    <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                    <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                    <boolProp name="HTTPSampler.monitor">false</boolProp>
+                    <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                    <stringProp name="HTTPSampler.embedded_url_re"/>
+                    <stringProp name="HTTPSampler.contentEncoding"/>
+                    <stringProp name="HTTPSampler.method">GET</stringProp>
+                    <stringProp name="HTTPSampler.domain">{{baseUrl}}</stringProp>
+                    <stringProp name="HTTPSampler.path">/iterable/referral</stringProp>
+                    <stringProp name="HTTPSampler.protocol">http</stringProp>
+                    <stringProp name="HTTPSampler.port"/>
+                </HTTPSamplerProxy>
+                <hashTree>
+                    <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                        <collectionProp name="HeaderManager.headers">
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Accept</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </HeaderManager>
+                    <hashTree/>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Get loyalty ledger" enabled="true">
+                    <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="deployment" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">company.talon.one</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">deployment</stringProp>
+                            </elementProp>
+                            <elementProp name="profileIntegrationId" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">URN-GV8294NV</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">profileIntegrationId</stringProp>
+                            </elementProp>
+                            <elementProp name="loyaltyProgramId" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">25</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">loyaltyProgramId</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </elementProp>
+                    <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                    <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                    <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                    <boolProp name="HTTPSampler.monitor">false</boolProp>
+                    <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                    <stringProp name="HTTPSampler.embedded_url_re"/>
+                    <stringProp name="HTTPSampler.contentEncoding"/>
+                    <stringProp name="HTTPSampler.method">GET</stringProp>
+                    <stringProp name="HTTPSampler.domain">{{baseUrl}}</stringProp>
+                    <stringProp name="HTTPSampler.path">/iterable/loyalty</stringProp>
+                    <stringProp name="HTTPSampler.protocol">http</stringProp>
+                    <stringProp name="HTTPSampler.port"/>
+                </HTTPSamplerProxy>
+                <hashTree>
+                    <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                        <collectionProp name="HeaderManager.headers">
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Accept</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </HeaderManager>
+                    <hashTree/>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Send event" enabled="true">
+                    <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                    <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                                <stringProp name="Argument.value">{
+  "type": "module_registration_request",
+  "id": "62cdcd11-3913-4c66-a2c7-01ae7a445a61",
+  "timestamp_ms": 1586980879793,
+  "firehose_version": "2.4.0",
+  "account": {
+    "account_id": 1234567,
+    "account_settings": {
+      "apiKey": "someapikey",
+      "deploymentURL": "mycompany.europe-west1.talon.one",
+      "userIdField": "email"
+    }
+  }
+}</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </elementProp>
+                    <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                    <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                    <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                    <boolProp name="HTTPSampler.monitor">false</boolProp>
+                    <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                    <stringProp name="HTTPSampler.embedded_url_re"/>
+                    <stringProp name="HTTPSampler.contentEncoding"/>
+                    <stringProp name="HTTPSampler.method">POST</stringProp>
+                    <stringProp name="HTTPSampler.domain">{{baseUrl}}</stringProp>
+                    <stringProp name="HTTPSampler.path">/mparticle</stringProp>
+                    <stringProp name="HTTPSampler.protocol">http</stringProp>
+                    <stringProp name="HTTPSampler.port"/>
+                </HTTPSamplerProxy>
+                <hashTree>
+                    <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                        <collectionProp name="HeaderManager.headers">
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Content-Type</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Accept</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </HeaderManager>
+                    <hashTree/>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update customer profile" enabled="true">
+                    <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                    <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                                <stringProp name="Argument.value">{
+  "attributes": {
+    "Language": "english",
+    "ShippingCountry": "DE",
+    "ProductClicked": true
+  },
+  "runRuleEngine": false,
+  "audiencesChanges": {
+    "adds": [
+      1,
+      2,
+      3
+    ],
+    "deletes": [
+      4,
+      5,
+      6
+    ]
+  }
+}</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+                            <elementProp name="skipNonExistingAttributes" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">true</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">skipNonExistingAttributes</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </elementProp>
+                    <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                    <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                    <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                    <boolProp name="HTTPSampler.monitor">false</boolProp>
+                    <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                    <stringProp name="HTTPSampler.embedded_url_re"/>
+                    <stringProp name="HTTPSampler.contentEncoding"/>
+                    <stringProp name="HTTPSampler.method">PUT</stringProp>
+                    <stringProp name="HTTPSampler.domain">{{baseUrl}}</stringProp>
+                    <stringProp name="HTTPSampler.path">/segment/v2/customer_profiles/:customerProfileId</stringProp>
+                    <stringProp name="HTTPSampler.protocol">http</stringProp>
+                    <stringProp name="HTTPSampler.port"/>
+                </HTTPSamplerProxy>
+                <hashTree>
+                    <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                        <collectionProp name="HeaderManager.headers">
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">destination-hostname</stringProp>
+                                <stringProp name="Header.value">mycompany.europe-west1.talon.one</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Content-Type</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Accept</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </HeaderManager>
+                    <hashTree/>
+                    <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="URL Path Variables" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="customerProfileId" elementType="Argument">
+                                <stringProp name="Argument.name">customerProfileId</stringProp>
+                                <stringProp name="Argument.value">customer1</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </Arguments>
+                    <hashTree/>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update audiences in multiple customer profiles" enabled="true">
+                    <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                    <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                                <stringProp name="Argument.value">{
+  "data": [
+    {
+      "adds": [
+        1,
+        2,
+        3
+      ],
+      "deletes": [
+        4,
+        5,
+        6
+      ],
+      "customerProfileId": "URN-GV8294NV"
+    },
+    {
+      "adds": [
+        1,
+        2,
+        3
+      ],
+      "deletes": [
+        4,
+        5,
+        6
+      ],
+      "customerProfileId": "URN-GV8294NV"
+    }
+  ]
+}</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </elementProp>
+                    <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                    <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                    <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                    <boolProp name="HTTPSampler.monitor">false</boolProp>
+                    <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                    <stringProp name="HTTPSampler.embedded_url_re"/>
+                    <stringProp name="HTTPSampler.contentEncoding"/>
+                    <stringProp name="HTTPSampler.method">PUT</stringProp>
+                    <stringProp name="HTTPSampler.domain">{{baseUrl}}</stringProp>
+                    <stringProp name="HTTPSampler.path">/segment/customer_profiles/audiences</stringProp>
+                    <stringProp name="HTTPSampler.protocol">http</stringProp>
+                    <stringProp name="HTTPSampler.port"/>
+                </HTTPSamplerProxy>
+                <hashTree>
+                    <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                        <collectionProp name="HeaderManager.headers">
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">destination-hostname</stringProp>
+                                <stringProp name="Header.value">mycompany.europe-west1.talon.one</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Content-Type</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Accept</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </HeaderManager>
+                    <hashTree/>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Track event" enabled="true">
+                    <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                    <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                                <stringProp name="Argument.value">{
+  "eventType": "mySegmentEvent",
+  "eventAttributes": {
+    "Language": "english",
+    "ShippingCountry": "DE",
+    "ProductClicked": true
+  },
+  "customerProfileId": "URN-GV8294NV"
+}</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+                            <elementProp name="skipNonExistingAttributes" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">true</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">skipNonExistingAttributes</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </elementProp>
+                    <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                    <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                    <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                    <boolProp name="HTTPSampler.monitor">false</boolProp>
+                    <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                    <stringProp name="HTTPSampler.embedded_url_re"/>
+                    <stringProp name="HTTPSampler.contentEncoding"/>
+                    <stringProp name="HTTPSampler.method">PUT</stringProp>
+                    <stringProp name="HTTPSampler.domain">{{baseUrl}}</stringProp>
+                    <stringProp name="HTTPSampler.path">/segment/v2/events</stringProp>
+                    <stringProp name="HTTPSampler.protocol">http</stringProp>
+                    <stringProp name="HTTPSampler.port"/>
+                </HTTPSamplerProxy>
+                <hashTree>
+                    <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                        <collectionProp name="HeaderManager.headers">
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">destination-hostname</stringProp>
+                                <stringProp name="Header.value">mycompany.europe-west1.talon.one</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Content-Type</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Accept</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </HeaderManager>
+                    <hashTree/>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Create audience" enabled="true">
+                    <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                    <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                                <stringProp name="Argument.value">{
+  "audienceId": "382370BKDB946",
+  "audienceName": "Travel audience"
+}</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </elementProp>
+                    <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                    <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                    <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                    <boolProp name="HTTPSampler.monitor">false</boolProp>
+                    <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                    <stringProp name="HTTPSampler.embedded_url_re"/>
+                    <stringProp name="HTTPSampler.contentEncoding"/>
+                    <stringProp name="HTTPSampler.method">POST</stringProp>
+                    <stringProp name="HTTPSampler.domain">{{baseUrl}}</stringProp>
+                    <stringProp name="HTTPSampler.path">/segment/audiences</stringProp>
+                    <stringProp name="HTTPSampler.protocol">http</stringProp>
+                    <stringProp name="HTTPSampler.port"/>
+                </HTTPSamplerProxy>
+                <hashTree>
+                    <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                        <collectionProp name="HeaderManager.headers">
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">destination-hostname</stringProp>
+                                <stringProp name="Header.value">mycompany.europe-west1.talon.one</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Content-Type</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Accept</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </HeaderManager>
+                    <hashTree/>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update audience" enabled="true">
+                    <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                    <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                                <stringProp name="Argument.value">{
+  "audienceId": "382370BKDB946",
+  "audienceName": "Travel audience"
+}</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </elementProp>
+                    <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                    <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                    <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                    <boolProp name="HTTPSampler.monitor">false</boolProp>
+                    <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                    <stringProp name="HTTPSampler.embedded_url_re"/>
+                    <stringProp name="HTTPSampler.contentEncoding"/>
+                    <stringProp name="HTTPSampler.method">PUT</stringProp>
+                    <stringProp name="HTTPSampler.domain">{{baseUrl}}</stringProp>
+                    <stringProp name="HTTPSampler.path">/segment/audiences/:audienceId</stringProp>
+                    <stringProp name="HTTPSampler.protocol">http</stringProp>
+                    <stringProp name="HTTPSampler.port"/>
+                </HTTPSamplerProxy>
+                <hashTree>
+                    <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                        <collectionProp name="HeaderManager.headers">
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">destination-hostname</stringProp>
+                                <stringProp name="Header.value">mycompany.europe-west1.talon.one</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Content-Type</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Accept</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </HeaderManager>
+                    <hashTree/>
+                    <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="URL Path Variables" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="audienceId" elementType="Argument">
+                                <stringProp name="Argument.name">audienceId</stringProp>
+                                <stringProp name="Argument.value">audience1</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </Arguments>
+                    <hashTree/>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Delete audience" enabled="true">
+                    <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments"/>
+                    </elementProp>
+                    <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                    <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                    <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                    <boolProp name="HTTPSampler.monitor">false</boolProp>
+                    <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                    <stringProp name="HTTPSampler.embedded_url_re"/>
+                    <stringProp name="HTTPSampler.contentEncoding"/>
+                    <stringProp name="HTTPSampler.method">DELETE</stringProp>
+                    <stringProp name="HTTPSampler.domain">{{baseUrl}}</stringProp>
+                    <stringProp name="HTTPSampler.path">/segment/audiences/:audienceId</stringProp>
+                    <stringProp name="HTTPSampler.protocol">http</stringProp>
+                    <stringProp name="HTTPSampler.port"/>
+                </HTTPSamplerProxy>
+                <hashTree>
+                    <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                        <collectionProp name="HeaderManager.headers">
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">destination-hostname</stringProp>
+                                <stringProp name="Header.value">mycompany.europe-west1.talon.one</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Accept</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </HeaderManager>
+                    <hashTree/>
+                    <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="URL Path Variables" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="audienceId" elementType="Argument">
+                                <stringProp name="Argument.name">audienceId</stringProp>
+                                <stringProp name="Argument.value">audience1</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </Arguments>
+                    <hashTree/>
+                </hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Update customer session" enabled="true">
+                    <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                    <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                                <stringProp name="Argument.value">{
+  "profileId": "URN-GV8294NV",
+  "couponCodes": [
+    "XMAS-20-2021"
+  ],
+  "referralCode": "NT2K54D9",
+  "loyaltyCards": [
+    "loyalty-card-1"
+  ],
+  "state": "open",
+  "cartItems": [
+    {
+      "sku": "SKU1241028",
+      "quantity": 1,
+      "name": "Air Glide",
+      "returnedQuantity": 1,
+      "remainingQuantity": 1,
+      "price": 99.99,
+      "category": "shoes",
+      "weight": 1130,
+      "height": -34040889.474847734,
+      "width": 72646530.80477872,
+      "length": -6931001.62945202,
+      "position": -69780548.96785794,
+      "attributes": {
+        "image": "11.jpeg",
+        "material": "leather"
+      },
+      "additionalCosts": {
+        "shipping": {
+          "price": 9
+        }
+      }
+    },
+    {
+      "sku": "SKU1241028",
+      "quantity": 1,
+      "name": "Air Glide",
+      "returnedQuantity": 1,
+      "remainingQuantity": 1,
+      "price": 99.99,
+      "category": "shoes",
+      "weight": 1130,
+      "height": 58602629.57547873,
+      "width": -21752295.704299286,
+      "length": -59499668.63341825,
+      "position": -67661427.10385053,
+      "attributes": {
+        "image": "11.jpeg",
+        "material": "leather"
+      },
+      "additionalCosts": {
+        "shipping": {
+          "price": 9
+        }
+      }
+    }
+  ],
+  "additionalCosts": {
+    "shipping": {
+      "price": 9
+    }
+  },
+  "identifiers": [
+    "91.11.156.141"
+  ],
+  "attributes": {
+    "ShippingCity": "Berlin"
+  }
+}</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+                            <elementProp name="skipNonExistingAttributes" elementType="HTTPArgument">
+                                <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                                <stringProp name="Argument.value">true</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                                <stringProp name="Argument.name">skipNonExistingAttributes</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </elementProp>
+                    <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                    <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                    <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                    <boolProp name="HTTPSampler.monitor">false</boolProp>
+                    <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                    <stringProp name="HTTPSampler.embedded_url_re"/>
+                    <stringProp name="HTTPSampler.contentEncoding"/>
+                    <stringProp name="HTTPSampler.method">PUT</stringProp>
+                    <stringProp name="HTTPSampler.domain">{{baseUrl}}</stringProp>
+                    <stringProp name="HTTPSampler.path">/segment/v2/customer_sessions/:customerSessionId</stringProp>
+                    <stringProp name="HTTPSampler.protocol">http</stringProp>
+                    <stringProp name="HTTPSampler.port"/>
+                </HTTPSamplerProxy>
+                <hashTree>
+                    <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                        <collectionProp name="HeaderManager.headers">
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">destination-hostname</stringProp>
+                                <stringProp name="Header.value">mycompany.europe-west1.talon.one</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">X-Callback-Destination-URI</stringProp>
+                                <stringProp name="Header.value">http://mydomain.com/api/callbacks</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">X-Callback-API-Key</stringProp>
+                                <stringProp name="Header.value">Authorization 3aa74d582bd9479c59e16f970fe13bf3</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">X-Content-Fields</stringProp>
+                                <stringProp name="Header.value">customerProfile</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">X-Correlation-ID</stringProp>
+                                <stringProp name="Header.value">abc123</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Content-Type</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                            <elementProp name="" elementType="Header">
+                                <stringProp name="Header.name">Accept</stringProp>
+                                <stringProp name="Header.value">application/json</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </HeaderManager>
+                    <hashTree/>
+                    <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="URL Path Variables" enabled="true">
+                        <collectionProp name="Arguments.arguments">
+                            <elementProp name="customerSessionId" elementType="Argument">
+                                <stringProp name="Argument.name">customerSessionId</stringProp>
+                                <stringProp name="Argument.value">session1</stringProp>
+                                <stringProp name="Argument.metadata">=</stringProp>
+                            </elementProp>
+                        </collectionProp>
+                    </Arguments>
+                    <hashTree/>
+                </hashTree>
+            </hashTree>
+        </hashTree>
+    </hashTree>
+</jmeterTestPlan>
