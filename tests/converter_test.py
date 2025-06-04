@@ -5,18 +5,14 @@ from xml.dom import minidom
 import os
 import sys
 
-# Adjust the Python path to correctly find the converter script.
-# This assumes postman_to_jmx_converter.py is two levels up from converter_test.py
-# (e.g., if converter_test.py is in project_root/test/test/, then the converter is in project_root/)
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-# Import the functions from your converter script
 from postman2jmx import convert_postman_to_jmx, add_user_defined_variables, process_items, process_request
 
-# Helper function to parse JMX and get specific elements
+# helper func to parse JMX and get specific elements
 def parse_jmx(jmx_file_path):
     """Parses a JMX file and returns the root element."""
-    # Parse with explicit handling of empty elements
+    # parse with handling of empty elements
     parser = ET.XMLParser()
     tree = ET.parse(jmx_file_path, parser=parser)
     return tree.getroot()
@@ -68,11 +64,11 @@ def test_basic_get_request_conversion(tmp_path):
 
     root = parse_jmx(str(jmx_output_file))
 
-    # Assert Thread Group name
+    # assert thread group name
     thread_group = find_element(root, "ThreadGroup", "testname", "Test Collection")
     assert thread_group is not None
 
-    # Assert HTTP Sampler properties
+    # assert HTTP sampler props
     sampler = find_element(root, "HTTPSamplerProxy", "testname", "Get Users")
     assert sampler is not None
     assert find_element(sampler, "stringProp", "name", "HTTPSampler.method").text == "GET"
@@ -119,10 +115,10 @@ def test_post_raw_json_body_conversion(tmp_path):
     sampler = find_element(root, "HTTPSamplerProxy", "testname", "Create User")
     assert sampler is not None
 
-    # Check for raw body settings
+    # check for raw body settings
     assert find_element(sampler, "boolProp", "name", "HTTPSampler.postBodyRaw").text == "true"
 
-    # Check the argument for the raw body
+    # check the arg for the raw body
     arguments_prop = find_element(sampler, "elementProp", "name", "HTTPsampler.Arguments")
     assert arguments_prop is not None
     collection_prop = arguments_prop.find("collectionProp[@name='Arguments.arguments']")
@@ -133,7 +129,7 @@ def test_post_raw_json_body_conversion(tmp_path):
     assert find_element(arg_element, "stringProp", "name", "Argument.metadata").text == "="
     assert find_element(arg_element, "boolProp", "name", "HTTPArgument.always_encode").text == "false"
 
-    # Check header
+    # check header
     header_manager = find_element(root, "HeaderManager", "testname", "HTTP Header Manager")
     assert header_manager is not None
     header_name = header_manager.find(".//stringProp[@name='Header.name']")
@@ -183,7 +179,7 @@ def test_post_urlencoded_body_conversion(tmp_path):
     sampler = find_element(root, "HTTPSamplerProxy", "testname", "Update Product")
     assert sampler is not None
 
-    # Check arguments for urlencoded body
+    # check args for urlencoded body
     arguments_prop = find_element(sampler, "elementProp", "name", "HTTPsampler.Arguments")
     assert arguments_prop is not None
     collection_prop = arguments_prop.find("collectionProp[@name='Arguments.arguments']")
@@ -345,7 +341,7 @@ def test_missing_environment_file_warning(tmp_path, capsys):
     captured = capsys.readouterr()
     assert f"Warning: Environment file '{non_existent_env_file}' not found. Skipping environment variables." in captured.out
 
-    # Ensure no environment variables element is added
+    # no env var element is added
     root = parse_jmx(str(jmx_output_file))
     user_defined_vars = find_element(root, "Arguments", "testname", "Environment Variables")
     assert user_defined_vars is None
@@ -398,7 +394,7 @@ def test_nested_folders_are_flattened(tmp_path):
 
     root = parse_jmx(str(jmx_output_file))
 
-    # All requests should be directly under the main Thread Group's hashTree
+    # all requests should be directly under the main thread group hashTree
     sampler1 = find_element(root, "HTTPSamplerProxy", "testname", "Request 1.1")
     sampler2 = find_element(root, "HTTPSamplerProxy", "testname", "Request 1.1.1")
     sampler3 = find_element(root, "HTTPSamplerProxy", "testname", "Request 2")
@@ -407,12 +403,7 @@ def test_nested_folders_are_flattened(tmp_path):
     assert sampler2 is not None
     assert sampler3 is not None
 
-    # The "flattened" aspect means they are not nested under further <hashTree> elements
-    # that would represent folders in JMeter's GUI.
-    # We can verify this by checking that all samplers are found directly when searching the entire document.
-    # The previous assertion on `thread_group_hash_tree` was incorrect as the XPath was wrong.
-    # The presence of the samplers at the top level already implies flattening.
-    # No further explicit assertion for flattening is strictly needed beyond confirming their existence.
+    # The "flattened" means they are not nested under further <hashTree> elements
     samplers_found_in_main_tree = find_all_elements(root, "HTTPSamplerProxy") # Search from root
     sampler_names = {s.get('testname') for s in samplers_found_in_main_tree}
     assert "Request 1.1" in sampler_names
