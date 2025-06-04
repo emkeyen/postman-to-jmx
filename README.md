@@ -2,9 +2,7 @@
 
 # Postman to JMeter Converter
 
-This Python3 script converts your Postman API collections into JMeter test plans. It handles request bodies, headers, URL details and integrates Postman collection and environment variables.
-
-#### Handles:
+This Python3 script converts your Postman API collections into JMeter test plans. It handles:
 
 * **Request bodies:** Raw JSON, x-www-form-urlencoded.
 * **Headers:** All your custom headers.
